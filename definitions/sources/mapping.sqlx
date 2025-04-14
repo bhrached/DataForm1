@@ -1,0 +1,15 @@
+config {
+  type: "table",
+  schema: "gc_source",
+  name: "mapping_data",
+  description: "contains all the mapping data to transform raw data to the conventional format"
+}
+
+SELECT
+  customer_id, order_id, product_id, price
+FROM
+  gc_source.orders_src AS o
+JOIN
+  gc_source.order_details_src AS od
+ON
+  o.id = od.order_id

@@ -1,0 +1,6 @@
+config {
+  type: "declaration",
+  schema: "gc_source",
+  name: "customer_source",
+  description: "contains all the client data"
+}

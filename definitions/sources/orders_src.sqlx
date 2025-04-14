@@ -1,0 +1,6 @@
+config {
+  type: "declaration",
+  schema: "gc_source",
+  name: "orders_src",
+  description: "contains all the mapping data to order"
+}

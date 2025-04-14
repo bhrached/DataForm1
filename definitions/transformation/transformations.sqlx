@@ -1,0 +1,19 @@
+config {
+  type: "table",
+  name: "detail_clients",
+  schema: "gc",
+  description: "Table combinée des clients et des commandes, contenant les informations de base des clients et de leurs commandes."
+}
+
+-- Jointure entre les tables customer et orders
+SELECT
+    c.name AS customer_name,
+    c.email AS customer_email,
+    c.created_at AS customer_created_at,
+    o.price AS price,
+FROM
+   gc_source.customers_src  AS c
+JOIN
+  ${ref("gc_source","mapping_data")} AS o
+ON
+  c.id = o.customer_id

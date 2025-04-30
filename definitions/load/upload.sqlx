@@ -1,0 +1,14 @@
+config {
+    type: "table"
+}
+
+LOAD DATA OVERWRITE
+  dataform-456809.gc.employee_external ( category_id String,
+    name String, age String, department String )
+FROM FILES ( format = 'CSV',
+    uris = ['gs://lab_importcsv-dataform/employee.csv']);
+
+SELECT
+  *
+FROM
+  dataform-456809.gc.employee_external

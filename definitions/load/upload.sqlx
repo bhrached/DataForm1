@@ -6,6 +6,10 @@ LOAD DATA OVERWRITE
   dataform-456809.gc.employee_external ( category_id String,
     name String, age String, department String )
 FROM FILES ( format = 'CSV',
+    format = 'CSV',
+    field_delimiter = ',',
+    skip_leading_rows = 1,  -- Skip header row (if present)
+    allow_quoted_newlines = TRUE,  -- Allow newlines within quoted fields
     uris = ['gs://lab_importcsv-dataform/employee.csv']);
 
 SELECT
